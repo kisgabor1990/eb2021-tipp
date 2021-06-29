@@ -9,8 +9,8 @@ $smarty->setCompileDir('./smarty/templates_c/');
 $smarty->setConfigDir('./smarty/configs/');
 $smarty->setCacheDir('./smarty/cache/');
 
-$textfile = fopen("txt/" . date("YmdHis") . ".txt", "w");
-fwrite($textfile, "EB 2021 Tipp\n");
+$textfile = fopen("txt/" . date("YmdHis") . "_" . rand(111111, 999999) . ".txt", "w");
+fwrite($textfile, "EB 2021 Tipp - " . date("Y. M d. - H:i:s") . "\n");
 
 $resztvevok = [
     "torok" => new Valogatott("A1", "Törökország", 1505),
@@ -110,18 +110,7 @@ $nyolcaddontok = [
     new Nyolcaddonto($tovabbjutok['A']['masodik'],$tovabbjutok['B']['masodik']),
 ];
 
-fwrite($textfile, utf8_decode("\nNyolcaddöntök:\n"));
-fwrite($textfile, "==============\n\n");
-foreach ($nyolcaddontok as $key => $nyolcaddonto) {
-    fprintf($textfile, "%15s %d - %d %-15s ==> %s\n", utf8_decode($nyolcaddonto->getCsapat1()->getOrszag()), 
-        $nyolcaddonto->getCsapat1Golok(), $nyolcaddonto->getCsapat2Golok(), 
-        utf8_decode($nyolcaddonto->getCsapat2()->getOrszag()), utf8_decode($nyolcaddonto->getGyoztes()->getOrszag()));
-    if ($nyolcaddonto->getCsapat1Golok() == $nyolcaddonto->getCsapat2Golok()) {
-        fprintf($textfile, "%17s - %s\n", "(" . $nyolcaddonto->getCsapat1_11es(), $nyolcaddonto->getCsapat2_11es() . ")");
-    }
-}
-fwrite($textfile, "--------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+fwriteDontok($textfile, "Nyolcaddöntö", $nyolcaddontok);
 
 // Lejátszuk a negyeddöntőket
 $negyeddontok = [];
@@ -129,18 +118,7 @@ for ($i = 0; $i < 8; $i += 2) {
     $negyeddontok[] = new Negyeddonto($nyolcaddontok[$i]->getGyoztes(), $nyolcaddontok[$i + 1]->getGyoztes());
 }
 
-fwrite($textfile, utf8_decode("\nNegyeddöntök:\n"));
-fwrite($textfile, "=============\n\n");
-foreach ($negyeddontok as $key => $negyeddonto) {
-    fprintf($textfile, "%15s %d - %d %-15s ==> %s\n", utf8_decode($negyeddonto->getCsapat1()->getOrszag()), 
-        $negyeddonto->getCsapat1Golok(), $negyeddonto->getCsapat2Golok(), 
-        utf8_decode($negyeddonto->getCsapat2()->getOrszag()), utf8_decode($negyeddonto->getGyoztes()->getOrszag()));
-    if ($negyeddonto->getCsapat1Golok() == $negyeddonto->getCsapat2Golok()) {
-        fprintf($textfile, "%17s - %s\n", "(" . $negyeddonto->getCsapat1_11es(), $negyeddonto->getCsapat2_11es() . ")");
-    }
-}
-fwrite($textfile, "--------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+fwriteDontok($textfile, "Negyeddöntö", $negyeddontok);
 
 // Lejátszuk az elődöntőket
 $elodontok = [];
@@ -148,18 +126,7 @@ for ($i = 0; $i < 4; $i += 2) {
     $elodontok[] = new Elodonto($negyeddontok[$i]->getGyoztes(), $negyeddontok[$i + 1]->getGyoztes());
 }
 
-fwrite($textfile, utf8_decode("\nElödöntök:\n"));
-fwrite($textfile, "==========\n\n");
-foreach ($elodontok as $key => $elodonto) {
-    fprintf($textfile, "%15s %d - %d %-15s ==> %s\n", utf8_decode($elodonto->getCsapat1()->getOrszag()), 
-        $elodonto->getCsapat1Golok(), $elodonto->getCsapat2Golok(), 
-        utf8_decode($elodonto->getCsapat2()->getOrszag()), utf8_decode($elodonto->getGyoztes()->getOrszag()));
-    if ($elodonto->getCsapat1Golok() == $elodonto->getCsapat2Golok()) {
-        fprintf($textfile, "%17s - %s\n", "(" . $elodonto->getCsapat1_11es(), $elodonto->getCsapat2_11es() . ")");
-    }
-}
-fwrite($textfile, "--------------------------------------------------------------------------------------------------------------------------------------------\n");
-
+fwriteDontok($textfile, "Elödöntö", $elodontok);
 
 // Lejátszuk a döntőt
 $donto = new Donto($elodontok[0]->getGyoztes(), $elodontok[1]->getGyoztes());

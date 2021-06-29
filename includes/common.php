@@ -1,5 +1,7 @@
 <?php 
 
+require './includes/functions.php';
+
 require './includes/classes/Valogatott.php';
 require './includes/classes/Csoport.php';
 require './includes/classes/Donto.php';
