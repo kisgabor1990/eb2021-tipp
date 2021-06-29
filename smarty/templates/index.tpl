@@ -15,7 +15,7 @@
 
     <div class="container">
 
-        <h1 class="text-center text-uppercase mb-5">EB - 2021</h1>
+        <h1 class="text-center text-uppercase my-5">EB - 2021</h1>
 
         <div class="accordion" id="accordion">
             <div class="accordion-item">
@@ -163,26 +163,26 @@
                                         <div class="card-body">
                                             <div class="row align-items-center">
                                                 <div
-                                                    class="col text-end fs-5 {if $nyolcaddonto->getCsapat1() == $nyolcaddonto->getGyoztes()} fw-bold {/if}">
+                                                    class="col-12 col-lg-4 text-center text-lg-end fs-5 {if $nyolcaddonto->getCsapat1() == $nyolcaddonto->getGyoztes()} fw-bold {/if}">
                                                     {$nyolcaddonto->getCsapat1()->getOrszag()}
                                                 </div>
-                                                <div class="col text-center fs-3">
+                                                <div class="col-12 col-lg-4 my-3 my-lg-0 text-center fs-3">
                                                     {$nyolcaddonto->getCsapat1Golok()} -
                                                     {$nyolcaddonto->getCsapat2Golok()}
+                                                    {if $nyolcaddonto->getCsapat1Golok() == $nyolcaddonto->getCsapat2Golok()}
+                                                        <div class="row">
+                                                            <div class="col text-center fs-6">
+                                                                ({$nyolcaddonto->getCsapat1_11es()} -
+                                                                {$nyolcaddonto->getCsapat2_11es()})
+                                                            </div>
+                                                        </div>
+                                                    {/if}
                                                 </div>
                                                 <div
-                                                    class="col text-start fs-5 {if $nyolcaddonto->getCsapat2() == $nyolcaddonto->getGyoztes()} fw-bold {/if}">
+                                                    class="col-12 col-lg-4 text-center text-lg-start fs-5 {if $nyolcaddonto->getCsapat2() == $nyolcaddonto->getGyoztes()} fw-bold {/if}">
                                                     {$nyolcaddonto->getCsapat2()->getOrszag()}
                                                 </div>
                                             </div>
-                                            {if $nyolcaddonto->getCsapat1Golok() == $nyolcaddonto->getCsapat2Golok()}
-                                                <div class="row">
-                                                    <div class="col text-center">
-                                                        ({$nyolcaddonto->getCsapat1_11es()} -
-                                                        {$nyolcaddonto->getCsapat2_11es()})
-                                                    </div>
-                                                </div>
-                                            {/if}
                                         </div>
                                     </div>
                                 </div>
@@ -208,27 +208,26 @@
                                         <div class="card-header fw-bold text-center">{$key + 1}. mérkőzés</div>
                                         <div class="card-body">
                                             <div class="row align-items-center">
-                                                <div
-                                                    class="col text-end fs-5 {if $negyeddonto->getCsapat1() == $negyeddonto->getGyoztes()} fw-bold {/if}">
+                                                <div class="col-12 col-lg-4 text-center text-lg-end fs-5 {if $negyeddonto->getCsapat1() == $negyeddonto->getGyoztes()} fw-bold {/if}">
                                                     {$negyeddonto->getCsapat1()->getOrszag()}
                                                 </div>
-                                                <div class="col text-center fs-3">
+                                                <div class="col-12 col-lg-4 my-3 my-lg-0 text-center fs-3">
                                                     {$negyeddonto->getCsapat1Golok()} -
                                                     {$negyeddonto->getCsapat2Golok()}
+                                                    {if $negyeddonto->getCsapat1Golok() == $negyeddonto->getCsapat2Golok()}
+                                                        <div class="row">
+                                                            <div class="col text-center fs-6">
+                                                                ({$negyeddonto->getCsapat1_11es()} -
+                                                                {$negyeddonto->getCsapat2_11es()})
+                                                            </div>
+                                                        </div>
+                                                    {/if}
                                                 </div>
                                                 <div
-                                                    class="col text-start fs-5 {if $negyeddonto->getCsapat2() == $negyeddonto->getGyoztes()} fw-bold {/if}">
+                                                    class="col-12 col-lg-4 text-center text-lg-start fs-5 {if $negyeddonto->getCsapat2() == $negyeddonto->getGyoztes()} fw-bold {/if}">
                                                     {$negyeddonto->getCsapat2()->getOrszag()}
                                                 </div>
                                             </div>
-                                            {if $negyeddonto->getCsapat1Golok() == $negyeddonto->getCsapat2Golok()}
-                                                <div class="row">
-                                                    <div class="col text-center">
-                                                        ({$negyeddonto->getCsapat1_11es()} -
-                                                        {$negyeddonto->getCsapat2_11es()})
-                                                    </div>
-                                                </div>
-                                            {/if}
                                         </div>
                                     </div>
                                 </div>
@@ -255,26 +254,26 @@
                                         <div class="card-body">
                                             <div class="row align-items-center">
                                                 <div
-                                                    class="col text-end fs-5 {if $elodonto->getCsapat1() == $elodonto->getGyoztes()} fw-bold {/if}">
+                                                    class="col-12 col-lg-4 text-center text-lg-end fs-5 {if $elodonto->getCsapat1() == $elodonto->getGyoztes()} fw-bold {/if}">
                                                     {$elodonto->getCsapat1()->getOrszag()}
                                                 </div>
-                                                <div class="col text-center fs-3">
+                                                <div class="col-12 col-lg-4 my-3 my-lg-0 text-center fs-3">
                                                     {$elodonto->getCsapat1Golok()} -
                                                     {$elodonto->getCsapat2Golok()}
+                                                    {if $elodonto->getCsapat1Golok() == $elodonto->getCsapat2Golok()}
+                                                        <div class="row">
+                                                            <div class="col text-center fs-6">
+                                                                ({$elodonto->getCsapat1_11es()} -
+                                                                {$elodonto->getCsapat2_11es()})
+                                                            </div>
+                                                        </div>
+                                                    {/if}
                                                 </div>
                                                 <div
-                                                    class="col text-start fs-5 {if $elodonto->getCsapat2() == $elodonto->getGyoztes()} fw-bold {/if}">
+                                                    class="col-12 col-lg-4 text-center text-lg-start fs-5 {if $elodonto->getCsapat2() == $elodonto->getGyoztes()} fw-bold {/if}">
                                                     {$elodonto->getCsapat2()->getOrszag()}
                                                 </div>
                                             </div>
-                                            {if $elodonto->getCsapat1Golok() == $elodonto->getCsapat2Golok()}
-                                                <div class="row">
-                                                    <div class="col text-center">
-                                                        ({$elodonto->getCsapat1_11es()} -
-                                                        {$elodonto->getCsapat2_11es()})
-                                                    </div>
-                                                </div>
-                                            {/if}
                                         </div>
                                     </div>
                                 </div>
@@ -300,32 +299,32 @@
                                     <div class="card-body">
                                         <div class="row align-items-center">
                                             <div
-                                                class="col text-end fs-3 {if $donto->getCsapat1() == $donto->getGyoztes()} fw-bold {/if}">
+                                                class="col-12 col-lg-4 text-center text-lg-end fs-3 {if $donto->getCsapat1() == $donto->getGyoztes()} fw-bold {/if}">
                                                 {$donto->getCsapat1()->getOrszag()}
                                             </div>
-                                            <div class="col text-center fs-1">
+                                            <div class="col-12 col-lg-4 my-3 my-lg-0 text-center fs-1">
                                                 {$donto->getCsapat1Golok()} -
                                                 {$donto->getCsapat2Golok()}
+                                                {if $donto->getCsapat1Golok() == $donto->getCsapat2Golok()}
+                                                    <div class="row">
+                                                        <div class="col text-center fs-6">
+                                                            ({$donto->getCsapat1_11es()} -
+                                                            {$donto->getCsapat2_11es()})
+                                                        </div>
+                                                    </div>
+                                                {/if}
                                             </div>
                                             <div
-                                                class="col text-start fs-3 {if $donto->getCsapat2() == $donto->getGyoztes()} fw-bold {/if}">
+                                                class="col-12 col-lg-4 text-center text-lg-start fs-3 {if $donto->getCsapat2() == $donto->getGyoztes()} fw-bold {/if}">
                                                 {$donto->getCsapat2()->getOrszag()}
                                             </div>
                                         </div>
-                                        {if $donto->getCsapat1Golok() == $donto->getCsapat2Golok()}
-                                            <div class="row">
-                                                <div class="col text-center">
-                                                    ({$donto->getCsapat1_11es()} -
-                                                    {$donto->getCsapat2_11es()})
-                                                </div>
-                                            </div>
-                                        {/if}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <h3 class="text-center">Az EB 2021 győztese:</h3>
-                        <h1 class="text-center my-5">{$donto->getGyoztes()->getOrszag()}</h1>
+                        <h1 class="text-center my-5 fw-bold text-uppercase">{$donto->getGyoztes()->getOrszag()}</h1>
                     </div>
                 </div>
             </div>
